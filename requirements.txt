@@ -1,0 +1,12 @@
+Webpack
+	Babel
+	Scss (препроцессор css)
+	Eslint (Следит за чистотой написания кода JS)
+	2 Mods (два режима разработки)
+		-- Dev (разработка) (Dev server, SourceMaps, Not Minified JS && CSS)
+		-- Prod (сбока) (Minified JS && CSS)
+
+
+GIT
+	новая ветка -- branch
+	слияние веток -- Pull Request
