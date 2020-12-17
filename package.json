@@ -1,0 +1,33 @@
+{
+  "name": "advancedjs",
+  "version": "1.0.0",
+  "description": "pure JS application",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack",
+    "prod": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DmitryASJS/advancedJS.git"
+  },
+  "keywords": [
+    "js",
+    "javascript",
+    "lessons"
+  ],
+  "author": "Dmitry Polyakov {ovir@mail.ru}",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DmitryASJS/advancedJS/issues"
+  },
+  "homepage": "https://github.com/DmitryASJS/advancedJS#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^7.0.0",
+    "html-webpack-plugin": "^5.0.0-alpha.17",
+    "webpack": "^5.10.1",
+    "webpack-cli": "^4.2.0"
+  }
+}
