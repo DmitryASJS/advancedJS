@@ -1,0 +1,51 @@
+{
+  "name": "advancedjs",
+  "version": "1.0.0",
+  "description": "pure JS application",
+  "main": "webpack.config.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development webpack serve",
+    "prod": "cross-env NODE_ENV=production webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DmitryASJS/advancedJS.git"
+  },
+  "keywords": [
+    "js",
+    "javascript",
+    "lessons"
+  ],
+  "author": "Dmitry Polyakov {ovir@mail.ru}",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DmitryASJS/advancedJS/issues"
+  },
+  "homepage": "https://github.com/DmitryASJS/advancedJS#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/eslint-parser": "^7.12.1",
+    "@babel/eslint-plugin": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^7.0.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^5.0.1",
+    "eslint": "^7.16.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-webpack-plugin": "^2.4.1",
+    "html-webpack-plugin": "^5.0.0-alpha.17",
+    "mini-css-extract-plugin": "^1.3.3",
+    "postcss": "^8.2.1",
+    "postcss-loader": "^4.1.0",
+    "sass": "^1.30.0",
+    "sass-loader": "^10.1.0",
+    "webpack": "^5.10.3",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1"
+  }
+}
