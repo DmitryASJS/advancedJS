@@ -1,18 +1,21 @@
-$color1: #7b8ea7;
-$color2: #3c3e4e;
-$color3: DarkSlateGrey;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
 
 
 html{
-	background: $color3;
-	font-size: 16px;
 	font-family: 'Roboto', sans-serif;
-	font-weight: 300;
+	background: $color5;
+	font-size: 16px;
+	font-weight: 100;
 }
 
 h1{
-	font-weight: 300;
+	font-family: 'Roboto Thin' , sans-serif;
 	font-size: 3rem;
+	font-weight: inherit;
 }
 
 .container{
@@ -34,4 +37,9 @@ h1{
 	&-top{
 		margin-top: 4rem;
 	}
+}
+
+.excel{
+	position: relative;
+	
 }
