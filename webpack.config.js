@@ -106,8 +106,8 @@ module.exports = {
 
 		}),
 		new HtmlWebpackPlugin({
-			template: path.join(__dirname, 'src/html', 'excellast.html'),
-			filename: 'excellast.html',
+			template: path.join(__dirname, 'src/html', 'dashboard.html'),
+			filename: 'dashboard.html',
 			inject: 'body',
 		}),
 		new CopyPlugin({
