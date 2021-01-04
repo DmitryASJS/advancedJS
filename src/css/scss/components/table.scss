@@ -1,0 +1,104 @@
+.excel__table{
+		// padding-top: calc(4rem + #{$header-height} + #{$toolbar-height} + #{$formula-height});
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: calc(4rem + #{$header-height} + #{$toolbar-height} + #{$formula-height});
+		overflow-x: auto; 
+		border-top: 1px solid darken($color1, 5%);
+		padding-bottom: 20px;
+
+	.row{
+		display: flex;
+		flex-direction: row;
+		min-height: 1.25rem;
+		height: $row-height;
+
+		&-info{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-width: $info-cell-with;
+			width: $info-cell-with;
+			height: 100%;
+			border: 1px solid darken($color1, 10%);
+			border-top: none;
+			color: darken($color1, 5%);
+			background: darken($color5, 3%);
+		}
+
+		&-data{
+			display: flex;
+		}
+
+	}
+
+	.column{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		min-width: $cell-width;
+		width: $cell-width;
+		height: 100%;
+		border: 1px solid darken($color1, 10%);
+		border-top: none;
+		border-left: none;
+		background: darken($color5, 3%);
+		color: darken($color1, 5%);
+	}
+
+	.cell{
+		position: relative;
+		display: flex;
+		justify-content: start;
+		align-items: center;
+		min-width: $cell-width;
+		width: $cell-width;
+		height: 100%;
+		border: 1px solid darken($color1, 20%);
+		border-top: none;
+		border-left: none;
+		color: lighten($color1, 10%);
+		white-space: nowrap;
+		padding-left: 4px;
+		outline: 0;
+		overflow: hidden;
+
+		// &:focus:before{
+		// 	content: "";
+		// 	display: block;
+		// 	position: absolute;
+		// 	box-sizing: border-box;
+		// 	top: 0;
+		// 	left: 0;
+		// 	right: 0;
+		// 	bottom: 0;
+		// 	border: 1px solid $colorAccent;
+		// 	z-index: 100;
+		// };
+
+		// &:focus:after{
+		// 	content: "";
+		// 	display: block;
+		// 	position: absolute;
+		// 	width: 15px;
+		// 	height: 15px;
+		// 	background: $colorAccent;
+		// 	border: 2px solid $color5;
+		// 	bottom: 0;
+		// 	right:0;
+		// 	transform: translate(50%,50%);
+		// 	cursor: pointer;
+		// 	z-index: 100;
+		// };
+
+		&.selected{
+			border: none;
+			outline: 2px solid $colorAccent;
+			z-index: 2;
+		}
+
+	}
+	
+}

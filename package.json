@@ -4,7 +4,7 @@
   "description": "pure JS application",
   "main": "webpack.config.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack serve",
+    "dev": "cross-env NODE_ENV=development webpack serve",
     "prod": "cross-env NODE_ENV=production webpack --mode production"
   },
   "repository": {
@@ -43,9 +43,12 @@
     "sass-loader": "^10.1.0",
     "webpack": "^5.10.3",
     "webpack-cli": "^4.2.0",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "webpack-material-design-icons": "^0.1.0"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.12.1"
+    "@babel/polyfill": "^7.12.1",
+    "material-design-icons": "^3.0.1",
+    "normalize.css": "^8.0.1"
   }
 }
