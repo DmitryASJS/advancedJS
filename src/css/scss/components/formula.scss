@@ -1,3 +1,45 @@
 .excel__formula{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: calc(2rem + #{$header-height} + #{$toolbar-height} )	;
+	height: calc(#{$formula-height} * 1);
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	background: darken($color5, 5%);
+
 	
+	.info{
+		text-align: center;
+		font-style: italic;
+		font-weight: 600;
+		min-width: calc(#{$formula-height} * 2);		
+		box-sizing: border-box;
+		border: 1px solid transparent;
+		border-right: 1px solid darken($color1, 20%);
+		flex-grow: 0;
+
+		& span{
+			color: darken($color1, 17%);
+			line-height: calc(#{$formula-height} - 2px);
+		}
+
+
+	}
+	.input{
+		flex-grow: 1;
+		height: $formula-height;
+		padding: 4px 10px;
+		display: flex;
+		align-items: center;
+		border: 1px solid transparent;
+		color: lighten($color1, 5%);
+		outline: none;
+		overflow: hidden;
+
+		&:active, &:focus{
+			border: 1px solid $colorAccent;
+		}
+	}
 }

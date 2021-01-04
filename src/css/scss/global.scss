@@ -16,6 +16,29 @@ h1{
 	font-family: 'Roboto Thin' , sans-serif;
 	font-size: 3rem;
 	font-weight: inherit;
+	margin: 0 0 2rem;
+
+}
+
+h2{
+	font-size: 2rem;
+	color: $color1;
+	font-weight: inherit;
+	margin: 2rem 0 1.5rem;
+
+}
+
+h3{
+	font-size: 1.5rem;
+	color: $color1;
+	font-weight: inherit;
+	margin: 1.5rem 0 1rem;
+}
+
+p{
+	font-size: 1rem;
+	color: $fontColor2;
+	margin: 0.5rem 0;
 }
 
 .container{
@@ -26,6 +49,7 @@ h1{
 	max-width: 1200px;
 	margin-left: auto;
 	margin-right: auto;
+	position: relative;
 }
 
 
@@ -41,5 +65,10 @@ h1{
 
 .excel{
 	position: relative;
-	
+	height: 80vh;
+	max-width: 100%;
+}
+
+.invisible{
+	display: none;
 }

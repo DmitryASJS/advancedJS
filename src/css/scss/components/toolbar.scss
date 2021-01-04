@@ -1,3 +1,34 @@
 .excel__toolbar{
-	
+	position: absolute;
+	height: $toolbar-height;
+	left: 0;
+	right: 0;
+	top: calc(1rem + #{$header-height});
+	border-top: 1px solid $color1;
+	border-bottom: 1px solid $color1;
+	padding: 7px 10px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;	
+
+	& .button{
+		@include button($color6);
+		margin-right:calc(2rem + 1px);
+
+		&:after{
+			content: "";
+			display: block;
+			position: absolute;
+			width: 1px;
+			background: darken($color1, 20%);
+			top :0;
+			bottom: 0;
+			right: calc(-1rem - 1px);
+		};
+
+		&:last-child:after, &:last-child:before{
+			content: "";
+			display: none;
+		};
+	}
 }

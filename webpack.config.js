@@ -15,8 +15,9 @@ let isDev = !isProd;
 // console.log('process.env.NODE_ENV →', process.env.NODE_ENV);
 // console.log('path.resolve(__dirname, eslintrc)', path.resolve(__dirname, './.eslintrc'));
 
+console.log( "__dirname, src", path.resolve(__dirname,'src\\html', 'excel.html') );
 
-const fileName = (ext) => isDev ? `bundle.${ext}` : `bundle.[fullhash].${ext}`;
+const fileName = (ext) => isDev ? `[name].${ext}` : `[name].[fullhash].${ext}`;
 
 
 const jsLoaders = () => {
@@ -51,14 +52,25 @@ const jsLoaders = () => {
 };
 
 
-let imgJpg = glob.sync(`${path.resolve(__dirname, 'src')}\\img\\**\\*.jpg`);
-console.log(imgJpg);
+// let imgJpg = glob.sync(`${path.resolve(__dirname, 'src')}\\img\\**\\*.jpg`).reduce((x, y) => {
+
+// 	console.log('-----------------------------------------');
+// 	console.log('y: ', y);
+// 	let name = (/([-_\w]+).\w+$/gi).exec(y)[1],chunks;
+// 	console.log('name: ', name);
+// 	console.log('chunks: ', chunks);
+// 	console.log('########################################');
+
+
+// });
+
 
 
 module.exports = {
 	context: path.resolve(__dirname,'src'),
 	mode: 'development',
-	entry: ["@babel/polyfill", './js/index.js'],
+	entry:
+		["@babel/polyfill", './js/index.js'], 
 	output: {
 		filename: fileName('js'),
 		path: path.resolve(__dirname, 'assets'),
@@ -67,8 +79,8 @@ module.exports = {
 		extensions: ['.js'],
 		alias: {
 			'@': path.resolve(__dirname,'src'),
-			'@core': path.resolve(__dirname,'src/core'),			
-		} 
+			'@core': path.resolve(__dirname,'src/core'),
+		}
 	},
 	devServer: {
 		contentBase: path.join(__dirname, 'assets'),
@@ -82,6 +94,20 @@ module.exports = {
 		new CleanWebpackPlugin(),
 		new HtmlWebpackPlugin({
 			template: 'index.html',
+			inject: 'body',
+		}),
+		new HtmlWebpackPlugin({
+			template: path.join(__dirname, 'src/html', 'excel.html'),
+			filename: 'excel.html',
+			inject: 'body',
+			templateParameters:{
+				'title2': 'Заголовок 2 провереннный'
+			}
+
+		}),
+		new HtmlWebpackPlugin({
+			template: path.join(__dirname, 'src/html', 'excellast.html'),
+			filename: 'excellast.html',
 			inject: 'body',
 		}),
 		new CopyPlugin({
