@@ -12,6 +12,10 @@ html{
 	font-weight: 100;
 }
 
+body{
+	min-height: 400vh;
+}
+
 h1{
 	font-family: 'Roboto Thin' , sans-serif;
 	font-size: 3rem;
@@ -72,3 +76,33 @@ p{
 .invisible{
 	display: none;
 }
+
+
+//draggable
+.grid{
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1rem;
+	margin-bottom: 5rem;
+}
+
+.box{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem 3rem;
+	box-sizing: border-box;
+	border: 2px solid #efefef;
+	border-radius: 0.5rem;
+	opacity: 1;	
+}
+
+.dropzone{
+	min-height: 3rem;
+	border: 1px solid $color1;
+	border-radius: 0.5rem;
+}
+
+
+
+
