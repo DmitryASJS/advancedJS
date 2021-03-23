@@ -75,3 +75,16 @@ excel.render();
 
 // window.mutationArr = window.arrtest.map(indexTest);
 
+// let speed = 0;
+
+// window.addEventListener('wheel', e => {
+// 	speed += e.deltaY*0.002;
+// });
+
+// function raf(){
+// 	console.log(speed);
+// 	window.requestAnimationFrame(raf);
+// }
+
+// raf();
+
