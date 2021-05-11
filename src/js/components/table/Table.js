@@ -1,142 +1,56 @@
 'use strict';
-
+import { $ } from '../../core/dom';
 import ExcelComponent from '../../core/ExcelComponent';
-import {createTable} from './table.template';
+import { createTable } from './table.template';
+import { resizeHandler } from './table.resize';
+import { shouldResize } from './table.functions';
 
 export default class Table extends ExcelComponent {
 	static classNameTag = 'table';
 	static $layout = createTable();
+	constructor($root, options) {
+		super($root, {
+			name: 'Table',
+			listeners: ['mousedown', 'click'],
+		})
+	}
 
-	// `
-	// 	<div class="row">
-	// 		<div class="row-info"></div>
-	// 		<div class="row-data">
-	// 			<div class="column">A</div>
-	// 			<div class="column">B</div>
-	// 			<div class="column">C</div>
-	// 			<div class="column">D</div>
-	// 			<div class="column">E</div>
-	// 			<div class="column">F</div>
-	// 			<div class="column">G</div>
-	// 			<div class="column">H</div>
-	// 			<div class="column">C</div>
-	// 			<div class="column">A</div>
-	// 			<div class="column">B</div>
-	// 			<div class="column">C</div>
-	// 			<div class="column">D</div>
-	// 			<div class="column">E</div>
-	// 			<div class="column">F</div>
-	// 			<div class="column">G</div>
-	// 			<div class="column">H</div>
-	// 			<div class="column">C</div>
-	// 			<div class="column">A</div>
-	// 			<div class="column">B</div>
-	// 			<div class="column">C</div>
-	// 			<div class="column">D</div>
-	// 			<div class="column">E</div>
-	// 			<div class="column">F</div>
-	// 			<div class="column">G</div>
-	// 			<div class="column">H</div>
-	// 			<div class="column">C</div>
-	// 			<div class="column">A</div>
-	// 			<div class="column">B</div>
-	// 			<div class="column">C</div>
-	// 			<div class="column">D</div>
-	// 			<div class="column">E</div>
-	// 			<div class="column">F</div>
-	// 			<div class="column">G</div>
-	// 			<div class="column">H</div>
-	// 			<div class="column">C</div>
-	// 			<div class="column">A</div>
-	// 			<div class="column">B</div>
-	// 			<div class="column">C</div>
-	// 			<div class="column">D</div>
-	// 			<div class="column">E</div>
-	// 			<div class="column">F</div>
-	// 			<div class="column">G</div>
-	// 			<div class="column">H</div>
-	// 			<div class="column">C</div>
-	// 			<div class="column">A</div>
-	// 			<div class="column">B</div>
-	// 			<div class="column">C</div>
-	// 			<div class="column">D</div>
-	// 			<div class="column">E</div>
-	// 			<div class="column">F</div>
-	// 			<div class="column">G</div>
-	// 			<div class="column">H</div>
-	// 			<div class="column">C</div>
-	// 		</div>
-	// 	</div>
+	onMousedown(event) {
 
-	// 	<div class="row">
-	// 		<div class="row-info">1</div>
-	// 		<div class="row-data">
-	// 			<div class="cell selected" contenteditable="true">1a</div>
-	// 			<div class="cell" contenteditable="true">1b</div>
-	// 			<div class="cell" contenteditable="true">1c</div>
-	// 		</div>
-	// 	</div>
+		if (shouldResize(event)) {
+			resizeHandler(this.$root, event);
+		}
 
-	// 	<div class="row">
-	// 		<div class="row-info">2</div>
-	// 		<div class="row-data">
-	// 			<div class="cell" contenteditable="true">2a</div>
-	// 			<div class="cell" contenteditable="true">2b</div>
-	// 			<div class="cell" contenteditable="true">2c</div>
-	// 		</div>
-	// 	</div>
+		
+	}
 
-	// 	<div class="row">
-	// 		<div class="row-info">3</div>
-	// 		<div class="row-data">
-	// 			<div class="cell" contenteditable="true">3a</div>
-	// 			<div class="cell" contenteditable="true">3b</div>
-	// 			<div class="cell" contenteditable="true">3c</div>
-	// 		</div>
-	// 	</div>
-	// 	<div class="row">
-	// 		<div class="row-info">3</div>
-	// 		<div class="row-data">
-	// 			<div class="cell" contenteditable="true">3a</div>
-	// 			<div class="cell" contenteditable="true">3b</div>
-	// 			<div class="cell" contenteditable="true">3c</div>
-	// 		</div>
-	// 	</div>
-	// 	<div class="row">
-	// 		<div class="row-info">3</div>
-	// 		<div class="row-data">
-	// 			<div class="cell" contenteditable="true">3a</div>
-	// 			<div class="cell" contenteditable="true">3b</div>
-	// 			<div class="cell" contenteditable="true">3c</div>
-	// 		</div>
-	// 	</div>
-	// 	<div class="row">
-	// 		<div class="row-info">3</div>
-	// 		<div class="row-data">
-	// 			<div class="cell" contenteditable="true">3a</div>
-	// 			<div class="cell" contenteditable="true">3b</div>
-	// 			<div class="cell" contenteditable="true">3c</div>
-	// 		</div>
-	// 	</div>
-	// 	<div class="row">
-	// 		<div class="row-info">3</div>
-	// 		<div class="row-data">
-	// 			<div class="cell" contenteditable="true">3a</div>
-	// 			<div class="cell" contenteditable="true">3b</div>
-	// 			<div class="cell" contenteditable="true">3c</div>
-	// 		</div>
-	// 	</div>
-	// 	<div class="row">
-	// 		<div class="row-info">3</div>
-	// 		<div class="row-data">
-	// 			<div class="cell" contenteditable="true">3a</div>
-	// 			<div class="cell" contenteditable="true">3b</div>
-	// 			<div class="cell" contenteditable="true">3c</div>
-	// 		</div>
-	// 	</div>
-	// `
+	onClick(event) {
+		function trackMutationDom(MutationRecord) {
+			console.log(MutationRecord[0])
+		}
 
-	get [Symbol.toStringTag]() {
+		const observer = new MutationObserver(trackMutationDom);
+		observer.observe(document, {
+			childList: true,
+			subtree: true,
+			characterDataOldValue: true,
+		});
+	}
+
+
+	// onHover(event){
+	// 	console.log('onHover on Toolbar. eventTarget → ', event.target);
+	// }
+
+	// onMousemove(event){
+	// 	console.log('ononMousemove on Toolbar. eventTarget → ', event.clientX);
+	// }
+
+	// onMouseup(event){
+	// 	console.log('ononMouseup on Toolbar. eventTarget → ', event.clientX);
+	// }
+
+	get[Symbol.toStringTag]() {
 		return 'Table';
 	}
 };

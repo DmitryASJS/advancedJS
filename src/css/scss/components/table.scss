@@ -1,20 +1,21 @@
-.excel__table{
-		// padding-top: calc(4rem + #{$header-height} + #{$toolbar-height} + #{$formula-height});
-		position: absolute;
-		left: 0;
-		right: 0;
-		top: calc(4rem + #{$header-height} + #{$toolbar-height} + #{$formula-height});
-		overflow-x: auto; 
-		border-top: 1px solid darken($color1, 5%);
-		padding-bottom: 20px;
+.excel__table {
+	// padding-top: calc(4rem + #{$header-height} + #{$toolbar-height} + #{$formula-height});
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: calc(4rem + #{$header-height} + #{$toolbar-height} + #{$formula-height});
+	overflow-x: auto;
+	border-top: 1px solid darken($color1, 5%);
+	padding-bottom: 20px;
 
-	.row{
+	.row {
 		display: flex;
 		flex-direction: row;
 		min-height: 1.25rem;
 		height: $row-height;
 
-		&-info{
+		&-info {
+			position: relative;
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -25,18 +26,41 @@
 			border-top: none;
 			color: darken($color1, 5%);
 			background: darken($color5, 3%);
+			user-select: none;
+
+
+			.row-resize {
+				position: absolute;
+				bottom: -1px;
+				width: 100%;
+				height: 5px;
+				background: $colorAccent;
+				border-bottom: 1px solid transparent;
+				opacity: 0;
+				z-index: 100;
+				left: 0;
+
+				&:hover {
+					opacity: 1;
+					border-bottom: 1px solid darken($colorAccent, 20%);
+				}
+			}
+
+
+
+
 		}
 
-		&-data{
+		&-data {
 			display: flex;
 		}
-
 	}
 
-	.column{
+	.column {
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		position: relative;
 		height: 100%;
 		min-width: $cell-width;
 		width: $cell-width;
@@ -46,9 +70,31 @@
 		border-left: none;
 		background: darken($color5, 3%);
 		color: darken($color1, 5%);
+		user-select: none;
+
+		.col-resize {
+			position: absolute;
+			top: 0;
+			right: -1px;
+			width: 5px;
+			height: 100%;
+			background: $colorAccent;
+			border-right: 1px solid transparent;
+			opacity: 0;
+			z-index: 100;
+			transition: opasity 0.5s;
+
+			&:hover {
+				opacity: 1;
+				border-right: 1px solid darken($colorAccent, 20%);
+			}
+
+		}
+
+
 	}
 
-	.cell{
+	.cell {
 		position: relative;
 		display: flex;
 		justify-content: start;
@@ -65,18 +111,12 @@
 		outline: 0;
 		overflow: hidden;
 
-		// &:focus:before{
-		// 	content: "";
-		// 	display: block;
-		// 	position: absolute;
-		// 	box-sizing: border-box;
-		// 	top: 0;
-		// 	left: 0;
-		// 	right: 0;
-		// 	bottom: 0;
-		// 	border: 1px solid $colorAccent;
-		// 	z-index: 100;
-		// };
+		&:focus {
+			outline: 1px $color6 dotted;
+			outline-offset: -1px;
+		}
+
+		;
 
 		// &:focus:after{
 		// 	content: "";
@@ -93,12 +133,10 @@
 		// 	z-index: 100;
 		// };
 
-		&.selected{
+		&.selected {
 			border: none;
 			outline: 2px solid $colorAccent;
 			z-index: 2;
 		}
-
 	}
-	
 }
