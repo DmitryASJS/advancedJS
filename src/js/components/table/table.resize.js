@@ -52,7 +52,6 @@ export function resizeHandler($root, event) {
 			});
 
 		} else if (type === 'row') {
-			console.log(`onmouseup value ${value}`);
 			$resizableParent.css({ height: `${value + coords.height}px` });
 
 			$resizer.css({
@@ -60,6 +59,7 @@ export function resizeHandler($root, event) {
 				zIndex: "",
 				height: "",
 				bottom: "-1px",
+				width: "",
 			});
 		}
 

@@ -10,9 +10,9 @@ import Formula from './components/formula/Formula';
 import Table from './components/table/Table';
 
 
-
 const excel = new Excel('#app', {
 	components: [Header, Toolbar, Formula, Table],
+	// components: [Table],
 });
 
 
@@ -24,67 +24,23 @@ const excel = new Excel('#app', {
 
 excel.render();
 
-// window.artur = {
-// 	name: 'Artur',
-// 	lastName: 'Pomidirov',
-// 	fullName() {
-// 		let fullName = `${this.name} ${this.lastName}`;
-// 		console.log('fullName → ', fullName);
-// 		return fullName;
+// class SetterTest {
+// 	constructor(props) {
+// 		this.name = props.name;
+// 		// this.greeting = '';
 // 	}
-// }
 
-// window.peter = {
-// 	name: 'Peter',
-// 	lastName: 'Kamenev',
-// }
-
-
-// function decoratorTest(func) {
-// 	return function() {
-// 		console.log('test decorator');
-// 		console.log(this);
-// 		// debugger
-// 		return func.call(this);
+// 	get greeting(){
+// 		return this.greeting;
 // 	}
-// }
 
-// window.artur.fullName = decoratorTest(window.artur.fullName);
-
-// window.user = {
-// 	firstName: "Вася",
-// 	sayHi() {
-// 		console.log(`this.FirstName → ${this.FirstName}`);
-// 	}
-// }
-
-// setTimeout(() => window.user.sayHi(), 1000);
-
-
-// window.user = {
-// 	sayHi() {
-// 		console.log(`Что то пошло не так`);
+// 	set greeting(value) {
+// 		console.log(`${value} ${this.name}`);
+// 		this.greeting = `${value} ${this.name}`;
 // 	}
 // }
 
 
-// window.arrtest = new Array(10).fill(5);
-// function indexTest(el, index){
-// 	return el*index;
-// }
-
-// window.mutationArr = window.arrtest.map(indexTest);
-
-// let speed = 0;
-
-// window.addEventListener('wheel', e => {
-// 	speed += e.deltaY*0.002;
+// window.person = new SetterTest({
+// 	name: 'Olo',
 // });
-
-// function raf(){
-// 	console.log(speed);
-// 	window.requestAnimationFrame(raf);
-// }
-
-// raf();
-
