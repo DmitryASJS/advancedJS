@@ -29,7 +29,12 @@ export default class Toolbar extends ExcelComponent {
 		super($root, {
 			name: 'Toolbar',
 			listeners: ['click'],
+			...options,
 		})
+	}
+
+	toHTML(){
+		return Toolbar.$layout;
 	}
 
 

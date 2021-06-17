@@ -17,6 +17,17 @@ export default class Header extends ExcelComponent {
 				</div>
 	`;
 
+	constructor($root, options){
+		super($root, {
+			name: 'Headers',
+			...options,
+		})
+	}
+
+	toHTML() {
+		return Header.$layout;
+	}
+
 	get[Symbol.toStringTag]() {
 		return 'Header';
 	}

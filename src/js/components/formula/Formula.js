@@ -8,7 +8,7 @@ export default class Formula extends ExcelComponent {
 		<div class="info">
 			<span class="material-icons">functions</span>
 		</div>
-		<div 	class="input" 
+		<div 	id="formula" class="input" 
 				contenteditable="true" 
 				spellcheck="true">
 		</div>
@@ -17,22 +17,51 @@ export default class Formula extends ExcelComponent {
 	constructor($root, options) {
 		super($root, {
 			name: 'Formula',
-			listeners: ['input', 'click'],
+			listeners: ['input', 'click', 'keydown'],
+			...options,
 		})
 	}
 
+	toHTML() {
+		return Formula.$layout;
+	}
+
+	init() {
+		super.init();
+		this.$formula = this.$root.findEl('#formula');
+
+		this.$on('table:select', ($cell) => {
+			this.$formula.text($cell.text());
+		});
+
+		this.$on('table:input', ($cell) => {
+			this.$formula.text($cell.text());
+		})
+
+
+	}
 
 	get[Symbol.toStringTag]() {
 		return 'Formula';
 	}
 
-	onInput(event){
-		// console.log('Formula → onInput '. event);
-		// console.log('this → ', this);
-		console.log('onInput method → ', event.target.textContent.trim());
+	onInput(event) {
+		const contentCell = event.target.textContent.trim();
+		this.$emit('formula:input', contentCell);
+
 	}
 
-	onClick(event){
+	onClick(event) {
 		console.log('onClick method')
+	}
+
+	onKeydown(event) {
+		const keys = ['Enter', 'Tab'];
+		if (keys.includes(event.key)) {
+			event.preventDefault();
+
+			this.$emit('formula:enterKey');
+
+		}
 	}
 };

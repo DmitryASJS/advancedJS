@@ -111,13 +111,12 @@
 		outline: 0;
 		overflow: hidden;
 
-		&:focus {
-			outline: 1px $color6 dotted;
+		&.selected {
+			outline: 1px $color6 solid;
 			outline-offset: -1px;
+			border: none;
+			z-index: 2;
 		}
-
-		;
-
 		// &:focus:after{
 		// 	content: "";
 		// 	display: block;
